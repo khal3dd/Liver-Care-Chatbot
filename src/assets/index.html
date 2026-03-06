@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>رعاية الكلى — Kidney Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:        #06101f;
+  --surface:   #0c1a2e;
+  --surface2:  #112240;
+  --border:    rgba(99,157,219,0.15);
+  --blue:      #2563eb;
+  --blue-lt:   #639ddb;
+  --blue-dim:  rgba(37,99,235,0.12);
+  --amber:     #f0a732;
+  --amber-dim: rgba(240,167,50,0.1);
+  --green:     #22c997;
+  --red:       #f05252;
+  --text:      #e2eaf4;
+  --text-mid:  #8baec9;
+  --text-soft: #4a6a88;
+  --cream:     #f5f3ef;
+  --r:         16px;
+  --r-sm:      8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);height:100vh;display:flex;flex-direction:column;overflow:hidden;direction:rtl;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 55% 40% at 20% 15%,rgba(37,99,235,0.18) 0%,transparent 60%),radial-gradient(ellipse 35% 30% at 80% 85%,rgba(240,167,50,0.08) 0%,transparent 55%);}
+
+/* HEADER */
+header{position:relative;z-index:20;flex-shrink:0;height:64px;background:rgba(12,26,46,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 28px;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#1e40af);display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 0 20px rgba(37,99,235,0.4);}
+.brand-text h1{font-size:1.05rem;font-weight:800;color:var(--text);}
+.brand-text p{font-size:0.68rem;font-style:italic;font-family:'Lora',serif;color:var(--blue-lt);margin-top:1px;}
+.header-right{display:flex;align-items:center;gap:10px;}
+.pill{display:flex;align-items:center;gap:6px;border-radius:20px;padding:5px 12px;font-size:0.72rem;font-weight:600;}
+.pill-green{background:rgba(34,201,151,0.1);border:1px solid rgba(34,201,151,0.25);color:var(--green);}
+.pill-blue{background:var(--blue-dim);border:1px solid rgba(99,157,219,0.25);color:var(--blue-lt);}
+.dot-pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:dp 2s ease-in-out infinite;}
+@keyframes dp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.btn-new-chat{background:none;border:1px solid var(--border);border-radius:var(--r-sm);padding:6px 14px;color:var(--text-mid);font-family:'Tajawal',sans-serif;font-size:0.78rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+.btn-new-chat:hover{background:var(--blue-dim);border-color:var(--blue-lt);color:var(--text);}
+
+/* LAYOUT */
+.shell{position:relative;z-index:1;flex:1;display:grid;grid-template-columns:270px 1fr;overflow:hidden;}
+
+/* SIDEBAR */
+aside{background:rgba(12,26,46,0.7);backdrop-filter:blur(8px);border-left:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto;padding:20px 16px;}
+aside::-webkit-scrollbar{width:3px;}
+aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.quick-label{font-size:0.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);margin-bottom:10px;display:block;}
+.quick-btn{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:right;background:none;border:1px solid var(--border);border-radius:var(--r-sm);padding:9px 11px;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:0.8rem;color:var(--text-mid);transition:all 0.2s;margin-bottom:6px;line-height:1.4;}
+.quick-btn:hover{background:var(--blue-dim);border-color:rgba(99,157,219,0.4);color:var(--text);transform:translateX(-2px);}
+.quick-btn .em{font-size:0.95rem;flex-shrink:0;margin-top:1px;}
+.sidebar-divider{height:1px;background:var(--border);margin:4px 0 16px;}
+.disclaimer{margin-top:auto;background:var(--amber-dim);border:1px solid rgba(240,167,50,0.2);border-radius:var(--r-sm);padding:11px 12px;font-size:0.72rem;color:rgba(240,167,50,0.85);line-height:1.6;}
+.disclaimer strong{display:block;color:var(--amber);margin-bottom:2px;}
+
+/* CHAT */
+.chat{display:flex;flex-direction:column;background:var(--cream);overflow:hidden;}
+.messages{flex:1;overflow-y:auto;padding:24px 28px;display:flex;flex-direction:column;gap:16px;scroll-behavior:smooth;}
+.messages::-webkit-scrollbar{width:4px;}
+.messages::-webkit-scrollbar-thumb{background:#cdd9e5;border-radius:2px;}
+
+/* WELCOME */
+.welcome{background:linear-gradient(135deg,#0c1a2e,#112240);border-radius:20px;padding:28px 24px;color:white;position:relative;overflow:hidden;margin-bottom:4px;}
+.welcome::before{content:'';position:absolute;top:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(37,99,235,0.12);}
+.welcome::after{content:'';position:absolute;bottom:-20px;right:25%;width:100px;height:100px;border-radius:50%;background:rgba(240,167,50,0.07);}
+.welcome h2{font-size:1.35rem;font-weight:800;margin-bottom:8px;position:relative;z-index:1;}
+.welcome p{font-size:0.85rem;color:#8baec9;line-height:1.7;position:relative;z-index:1;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;position:relative;z-index:1;}
+.chip{background:rgba(255,255,255,0.07);border:1px solid rgba(99,157,219,0.3);border-radius:20px;padding:5px 14px;font-size:0.75rem;color:#8baec9;cursor:pointer;transition:all 0.2s;font-family:'Tajawal',sans-serif;}
+.chip:hover{background:rgba(37,99,235,0.2);color:white;}
+
+/* MESSAGES */
+.msg{display:flex;gap:10px;align-items:flex-start;animation:min 0.3s cubic-bezier(.22,.68,0,1.2) both;}
+@keyframes min{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.msg.user{flex-direction:row-reverse;}
+.av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;flex-shrink:0;}
+.msg.bot  .av{background:linear-gradient(135deg,var(--blue),#1e3a8a);color:white;font-size:1rem;}
+.msg.user .av{background:linear-gradient(135deg,var(--amber),#c27a10);color:white;font-size:0.8rem;}
+.bubble{max-width:68%;border-radius:18px;padding:12px 16px;font-size:0.88rem;line-height:1.75;box-shadow:0 2px 10px rgba(0,0,0,0.07);}
+.msg.bot  .bubble{background:white;border:1px solid rgba(37,99,235,0.08);border-top-right-radius:4px;color:#1a2e42;}
+.msg.user .bubble{background:linear-gradient(135deg,#112240,#0c1a2e);border-top-left-radius:4px;color:white;}
+.msg-time{font-size:0.65rem;margin-top:5px;opacity:.4;}
+.msg.user .msg-time{text-align:left;color:#8baec9;}
+.msg.bot  .msg-time{text-align:right;color:#6b8fa8;}
+
+/* TYPING */
+.typing-dots{display:flex;gap:4px;align-items:center;padding:4px 0;}
+.td{width:7px;height:7px;border-radius:50%;background:var(--blue-lt);animation:tdbo 1.2s ease-in-out infinite;}
+.td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
+@keyframes tdbo{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-7px);opacity:1}}
+
+.emergency-box{background:rgba(240,82,82,0.08);border:2px solid rgba(240,82,82,0.4);border-radius:14px;padding:14px 18px;font-size:0.88rem;color:#c0392b;font-weight:600;line-height:1.6;}
+.error-row{background:rgba(240,82,82,0.06);border:1px solid rgba(240,82,82,0.2);border-radius:10px;padding:10px 14px;font-size:0.8rem;color:#c0392b;align-self:flex-start;}
+
+/* INPUT */
+.input-bar{flex-shrink:0;background:white;border-top:1px solid rgba(37,99,235,0.1);padding:14px 28px 18px;}
+.input-wrap{display:flex;align-items:flex-end;gap:9px;background:#f0f4f9;border:2px solid rgba(37,99,235,0.12);border-radius:18px;padding:9px 12px;transition:border-color .2s,box-shadow .2s;}
+.input-wrap:focus-within{border-color:var(--blue-lt);box-shadow:0 0 0 4px rgba(37,99,235,0.07);}
+#chatInput{flex:1;border:none;background:none;font-family:'Tajawal',sans-serif;font-size:0.9rem;color:#1a2e42;resize:none;outline:none;max-height:120px;min-height:24px;line-height:1.55;direction:rtl;}
+#chatInput::placeholder{color:#8baec9;}
+.send-btn{width:40px;height:40px;border-radius:11px;flex-shrink:0;background:linear-gradient(135deg,var(--blue),#1e3a8a);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 14px rgba(37,99,235,0.35);}
+.send-btn:hover{transform:scale(1.07);}
+.send-btn:active{transform:scale(0.93);}
+.send-btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;}
+.send-btn svg{width:17px;height:17px;fill:white;transform:scaleX(-1);}
+.input-hint{text-align:center;margin-top:7px;font-size:0.68rem;color:#8baec9;}
+
+@media(max-width:720px){.shell{grid-template-columns:1fr;}aside{display:none;}.messages{padding:14px;}.input-bar{padding:10px 14px 14px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-icon">🩺</div>
+    <div class="brand-text">
+      <h1>رعاية الكلى</h1>
+      <p>Kidney Care Assistant</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <button class="btn-new-chat" onclick="newChat()">✏️ محادثة جديدة</button>
+    <div class="pill pill-green">
+      <div class="dot-pulse"></div>
+      <span id="statusText">جاري الاتصال...</span>
+    </div>
+    <div class="pill pill-blue">Gemini 2.5 Flash Lite</div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside>
+    <span class="quick-label">أسئلة سريعة</span>
+    <button class="quick-btn" onclick="sendQuick('إيه اللي المريض الكلوي محتاج يعرفه عن علاجه؟')"><span class="em">💊</span> العلاج والأدوية</button>
+    <button class="quick-btn" onclick="sendQuick('إيه الأكل المناسب لمريض الكلى؟')"><span class="em">🥗</span> النظام الغذائي</button>
+    <button class="quick-btn" onclick="sendQuick('أنا خايف من غسيل الكلى، ممكن تطمنني؟')"><span class="em">😰</span> الخوف من dialysis</button>
+    <button class="quick-btn" onclick="sendQuick('إيه علامات تدل على إن الكلى بتتأثر أكتر؟')"><span class="em">⚠️</span> علامات التدهور</button>
+    <button class="quick-btn" onclick="sendQuick('إزاي أتعامل مع التعب والإرهاق الناتج عن مرض الكلى؟')"><span class="em">😴</span> التعب والإرهاق</button>
+    <button class="quick-btn" onclick="sendQuick('هل ممكن مريض الكلى يعيش حياة طبيعية؟')"><span class="em">✈️</span> الحياة اليومية</button>
+    <button class="quick-btn" onclick="sendQuick('إيه أهمية شرب الماء لمريض الكلى؟')"><span class="em">💧</span> السوائل والماء</button>
+    <div class="sidebar-divider"></div>
+    <div class="disclaimer">
+      <strong>⚕️ تنبيه طبي</strong>
+      المساعد ده بيقدم دعم معلوماتي ونفسي فقط — مش بديل عن الطبيب. في أي حالة طارئة، روح لأقرب مستشفى فوراً.
+    </div>
+  </aside>
+
+  <div class="chat">
+    <div class="messages" id="messages">
+      <div class="welcome">
+        <h2>👋 أهلاً، أنا معاك</h2>
+        <p>مساعدك المتخصص في رعاية الكلى. هنا عشان أطمنك وأشرح لك بكلام بسيط. 💙</p>
+        <div class="chips">
+          <span class="chip" onclick="sendQuick('أنا قلقان على نتيجة التحاليل، ممكن تساعدني أفهم؟')">😟 أنا قلقان</span>
+          <span class="chip" onclick="sendQuick('إيه اللي المفروض آكله وأتجنبه كمريض كلى؟')">🥘 الأكل المناسب</span>
+          <span class="chip" onclick="sendQuick('شرح بسيط عن كيف تشتغل الكلى')">🔬 كيف تشتغل الكلى</span>
+          <span class="chip" onclick="sendQuick('كلمني عن مراحل مرض الكلى المزمن CKD')">📊 مراحل CKD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-bar">
+      <div class="input-wrap">
+        <textarea id="chatInput" rows="1"
+          placeholder="احكيلي إيه اللي مضايقك…"
+          onkeydown="handleKey(event)"
+          oninput="autoResize(this)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+      <div class="input-hint">Enter للإرسال · Shift+Enter لسطر جديد</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let sessionId = localStorage.getItem('kidney_session_id') || null;
+let isBusy    = false;
+
+window.onload = () => checkHealth();
+
+async function checkHealth() {
+  const el = document.getElementById('statusText');
+  try {
+    const res = await fetch('/health');
+    el.textContent = res.ok ? 'متصل' : 'خطأ في الاتصال';
+  } catch {
+    el.textContent = 'غير متصل';
+  }
+}
+
+async function newChat() {
+  if (sessionId) {
+    try { await fetch('/api/sessions/' + sessionId, { method: 'DELETE' }); } catch {}
+  }
+  sessionId = null;
+  localStorage.removeItem('kidney_session_id');
+  const msgs = document.getElementById('messages');
+  while (msgs.children.length > 1) msgs.removeChild(msgs.lastChild);
+}
+
+function sendQuick(text) { document.getElementById('chatInput').value = text; sendMessage(); }
+function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+function autoResize(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 120) + 'px'; }
+function nowTime() { return new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' }); }
+function scrollBottom() { const m = document.getElementById('messages'); m.scrollTop = m.scrollHeight; }
+
+function appendUser(text) {
+  const d = document.createElement('div');
+  d.className = 'msg user';
+  d.innerHTML = '<div class="av">أنا</div><div><div class="bubble">' + text.replace(/\n/g,'<br/>') + '</div><div class="msg-time">' + nowTime() + '</div></div>';
+  document.getElementById('messages').appendChild(d); scrollBottom();
+}
+
+function appendTyping() {
+  const d = document.createElement('div');
+  d.className = 'msg bot'; d.id = 'typing';
+  d.innerHTML = '<div class="av">🩺</div><div class="bubble"><div class="typing-dots"><div class="td"></div><div class="td"></div><div class="td"></div></div></div>';
+  document.getElementById('messages').appendChild(d); scrollBottom();
+}
+function removeTyping() { document.getElementById('typing')?.remove(); }
+
+function appendBot(text, isEmergency) {
+  const d = document.createElement('div');
+  d.className = 'msg bot';
+  const body = isEmergency
+    ? '<div class="emergency-box">🚨 ' + text + '</div>'
+    : '<div class="bubble">' + text.replace(/\n/g,'<br/>') + '</div><div class="msg-time">' + nowTime() + '</div>';
+  d.innerHTML = '<div class="av">🩺</div><div>' + body + '</div>';
+  document.getElementById('messages').appendChild(d); scrollBottom();
+}
+
+function appendError(msg) {
+  const d = document.createElement('div');
+  d.className = 'error-row'; d.textContent = msg;
+  document.getElementById('messages').appendChild(d); scrollBottom();
+}
+
+async function sendMessage() {
+  if (isBusy) return;
+  const input   = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const text    = input.value.trim();
+  if (!text) return;
+
+  input.value = ''; input.style.height = 'auto';
+  isBusy = true; sendBtn.disabled = true;
+
+  appendUser(text);
+  appendTyping();
+
+  let response;
+  try {
+    response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text, session_id: sessionId || undefined })
+    });
+  } catch {
+    removeTyping();
+    appendError('تعذّر الاتصال بالسيرفر — تأكد إن التطبيق شغال');
+    isBusy = false; sendBtn.disabled = false; input.focus();
+    return;
+  }
+
+  removeTyping();
+
+  if (!response.ok) {
+    let msg = 'حصل خطأ، حاول تاني';
+    try { const j = await response.json(); msg = j.message || msg; } catch {}
+    appendError(msg);
+    isBusy = false; sendBtn.disabled = false; input.focus();
+    return;
+  }
+
+  const data = await response.json();
+
+  if (data.data?.session_id && data.data.session_id !== sessionId) {
+    sessionId = data.data.session_id;
+    localStorage.setItem('kidney_session_id', sessionId);
+  }
+
+  appendBot(data.data.reply, data.data.is_emergency);
+  isBusy = false; sendBtn.disabled = false; input.focus();
+}
+</script>
+</body>
+</html>
