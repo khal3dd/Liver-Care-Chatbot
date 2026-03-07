@@ -1,4 +1,4 @@
-# Liver Care Chatbot v2.0.0
+# Liver Care Chatbot
 
 A FastAPI-based AI-powered chatbot application designed to provide liver care information and support. The application features a modern Arabic-language interface and integrates with OpenRouter's API for intelligent responses.
 
