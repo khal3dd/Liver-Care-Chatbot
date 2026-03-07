@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>رعاية الكلى — Kidney Care</title>
+<title>رعاية الكبد — Liver Care</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -120,8 +120,8 @@ aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
   <div class="brand">
     <div class="brand-icon">🩺</div>
     <div class="brand-text">
-      <h1>رعاية الكلى</h1>
-      <p>Kidney Care Assistant</p>
+      <h1>رعاية الكبد</h1>
+      <p>Liver Care Assistant</p>
     </div>
   </div>
   <div class="header-right">
@@ -137,13 +137,13 @@ aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 <div class="shell">
   <aside>
     <span class="quick-label">أسئلة سريعة</span>
-    <button class="quick-btn" onclick="sendQuick('إيه اللي المريض الكلوي محتاج يعرفه عن علاجه؟')"><span class="em">💊</span> العلاج والأدوية</button>
-    <button class="quick-btn" onclick="sendQuick('إيه الأكل المناسب لمريض الكلى؟')"><span class="em">🥗</span> النظام الغذائي</button>
-    <button class="quick-btn" onclick="sendQuick('أنا خايف من غسيل الكلى، ممكن تطمنني؟')"><span class="em">😰</span> الخوف من dialysis</button>
-    <button class="quick-btn" onclick="sendQuick('إيه علامات تدل على إن الكلى بتتأثر أكتر؟')"><span class="em">⚠️</span> علامات التدهور</button>
-    <button class="quick-btn" onclick="sendQuick('إزاي أتعامل مع التعب والإرهاق الناتج عن مرض الكلى؟')"><span class="em">😴</span> التعب والإرهاق</button>
-    <button class="quick-btn" onclick="sendQuick('هل ممكن مريض الكلى يعيش حياة طبيعية؟')"><span class="em">✈️</span> الحياة اليومية</button>
-    <button class="quick-btn" onclick="sendQuick('إيه أهمية شرب الماء لمريض الكلى؟')"><span class="em">💧</span> السوائل والماء</button>
+    <button class="quick-btn" onclick="sendQuick('إيه اللي المريض الكبدي محتاج يعرفه عن علاجه؟')"><span class="em">💊</span> العلاج والأدوية</button>
+    <button class="quick-btn" onclick="sendQuick('إيه الأكل المناسب لمريض الكبد؟')"><span class="em">🥗</span> النظام الغذائي</button>
+    <button class="quick-btn" onclick="sendQuick('أنا خايف من مرض الكبد المتقدم، ممكن تطمنني؟')"><span class="em">😰</span> الخوف من التطور</button>
+    <button class="quick-btn" onclick="sendQuick('إيه علامات تدل على إن الكبد بتتأثر أكتر؟')"><span class="em">⚠️</span> علامات التدهور</button>
+    <button class="quick-btn" onclick="sendQuick('إزاي أتعامل مع التعب والإرهاق الناتج عن مرض الكبد؟')"><span class="em">😴</span> التعب والإرهاق</button>
+    <button class="quick-btn" onclick="sendQuick('هل ممكن مريض الكبد يعيش حياة طبيعية؟')"><span class="em">✈️</span> الحياة اليومية</button>
+    <button class="quick-btn" onclick="sendQuick('إيه أهمية تقليل الملح لمريض الكبد؟')"><span class="em">🧂</span> الملح والتغذية</button>
     <div class="sidebar-divider"></div>
     <div class="disclaimer">
       <strong>⚕️ تنبيه طبي</strong>
@@ -155,12 +155,12 @@ aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
     <div class="messages" id="messages">
       <div class="welcome">
         <h2>👋 أهلاً، أنا معاك</h2>
-        <p>مساعدك المتخصص في رعاية الكلى. هنا عشان أطمنك وأشرح لك بكلام بسيط. 💙</p>
+        <p>مساعدك المتخصص في رعاية الكبد. هنا عشان أطمنك وأشرح لك بكلام بسيط. 💙</p>
         <div class="chips">
           <span class="chip" onclick="sendQuick('أنا قلقان على نتيجة التحاليل، ممكن تساعدني أفهم؟')">😟 أنا قلقان</span>
-          <span class="chip" onclick="sendQuick('إيه اللي المفروض آكله وأتجنبه كمريض كلى؟')">🥘 الأكل المناسب</span>
-          <span class="chip" onclick="sendQuick('شرح بسيط عن كيف تشتغل الكلى')">🔬 كيف تشتغل الكلى</span>
-          <span class="chip" onclick="sendQuick('كلمني عن مراحل مرض الكلى المزمن CKD')">📊 مراحل CKD</span>
+          <span class="chip" onclick="sendQuick('إيه اللي المفروض آكله وأتجنبه كمريض كبد؟')">🥘 الأكل المناسب</span>
+          <span class="chip" onclick="sendQuick('شرح بسيط عن كيف تشتغل الكبد')">🔬 كيف تشتغل الكبد</span>
+          <span class="chip" onclick="sendQuick('كلمني عن مراحل تليف الكبد Cirrhosis')">📊 مراحل التليف</span>
         </div>
       </div>
     </div>
@@ -181,7 +181,7 @@ aside::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 </div>
 
 <script>
-let sessionId = localStorage.getItem('kidney_session_id') || null;
+let sessionId = localStorage.getItem('liver_session_id') || null;
 let isBusy    = false;
 
 window.onload = () => checkHealth();
@@ -201,7 +201,7 @@ async function newChat() {
     try { await fetch('/api/sessions/' + sessionId, { method: 'DELETE' }); } catch {}
   }
   sessionId = null;
-  localStorage.removeItem('kidney_session_id');
+  localStorage.removeItem('liver_session_id');
   const msgs = document.getElementById('messages');
   while (msgs.children.length > 1) msgs.removeChild(msgs.lastChild);
 }
@@ -284,7 +284,7 @@ async function sendMessage() {
 
   if (data.data?.session_id && data.data.session_id !== sessionId) {
     sessionId = data.data.session_id;
-    localStorage.setItem('kidney_session_id', sessionId);
+    localStorage.setItem('liver_session_id', sessionId);
   }
 
   appendBot(data.data.reply, data.data.is_emergency);

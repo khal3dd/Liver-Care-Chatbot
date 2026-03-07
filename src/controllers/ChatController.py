@@ -32,20 +32,19 @@ class ChatController(BaseController):
                 model=model or settings.DEFAULT_MODEL,
             )
 
-        # Validate model
+       
         valid_models = ModelEnum.values_list()
         chosen_model = model or session.model
         if chosen_model not in valid_models:
             chosen_model = settings.DEFAULT_MODEL
 
-        # Call service
+        
         reply, updated_history, status = llm_service.chat(
             user_message=message,
             history=session.history,
             model=chosen_model,
         )
 
-        # Persist only on success or emergency
         if status in (ResponseEnum.CHAT_SUCCESS, ResponseEnum.EMERGENCY):
             session.history = updated_history
             session.message_count += 1
@@ -60,6 +59,4 @@ class ChatController(BaseController):
         }
         return result, status
 
-
-# Singleton
 chat_controller = ChatController()

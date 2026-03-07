@@ -37,5 +37,4 @@ class SessionController(BaseController):
         }, ResponseEnum.SUCCESS
 
 
-# Singleton
 session_controller = SessionController()

@@ -1,6 +1,6 @@
-# Kidney Care Chatbot v2.0.0
+# Liver Care Chatbot v2.0.0
 
-A FastAPI-based AI-powered chatbot application designed to provide kidney care information and support. The application features a modern Arabic-language interface and integrates with OpenRouter's API for intelligent responses.
+A FastAPI-based AI-powered chatbot application designed to provide liver care information and support. The application features a modern Arabic-language interface and integrates with OpenRouter's API for intelligent responses.
 
 ## Features
 
@@ -28,7 +28,7 @@ A FastAPI-based AI-powered chatbot application designed to provide kidney care i
 1. **Clone the repository**:
    ```bash
    git clone <repository-url>
-   cd Kidney-Care-App-v2
+   cd Liver-Care-App-v2
    ```
 
 2. **Verify Python version**:
@@ -86,7 +86,7 @@ A FastAPI-based AI-powered chatbot application designed to provide kidney care i
 
 2. **Open your browser** and navigate to `http://localhost:8000`
 
-3. **Start chatting**: The interface will load the Arabic kidney care chatbot
+3. **Start chatting**: The interface will load the Arabic liver care chatbot
 
 ## API Endpoints
 
@@ -115,7 +115,7 @@ The application uses Pydantic settings for configuration. Key settings include:
 ## Project Structure
 
 ```
-Kidney-Care-App-v2/
+Liver-Care-App-v2/
 ├── main.py                 # FastAPI application entry point
 ├── requirements.txt        # Python dependencies
 ├── src/

@@ -6,7 +6,7 @@ from src.models.enums.ResponseEnum import ResponseEnum
 
 class LLMService:
 
-    # ── Client ────────────────────────────────────────────
+
     def _get_client(self) -> OpenAI:
         if not settings.OPENROUTER_API_KEY:
             raise ValueError(ResponseEnum.INVALID_API_KEY.message)
@@ -15,12 +15,12 @@ class LLMService:
             base_url=settings.OPENROUTER_BASE_URL,
         )
 
-    # ── Emergency Detection ───────────────────────────────
+    
     def is_emergency(self, text: str) -> bool:
         text_lower = text.lower()
         return any(kw.lower() in text_lower for kw in EMERGENCY_KEYWORDS)
 
-    # ── History Helpers ───────────────────────────────────
+   
     def trim_history(self, history: list) -> list:
         if len(history) > settings.MAX_HISTORY_TURNS:
             return history[-settings.MAX_HISTORY_TURNS:]
@@ -29,7 +29,7 @@ class LLMService:
     def build_messages(self, history: list) -> list:
         return [{"role": "system", "content": SYSTEM_PROMPT}] + history
 
-    # ── Core Chat ─────────────────────────────────────────
+   
     def chat(
         self,
         user_message: str,
@@ -46,7 +46,7 @@ class LLMService:
         """
         model = model or settings.DEFAULT_MODEL
 
-        # Emergency bypass
+       
         if self.is_emergency(user_message):
             return EMERGENCY_RESPONSE, history, ResponseEnum.EMERGENCY
 
@@ -87,5 +87,4 @@ class LLMService:
             return str(e), history, ResponseEnum.CHAT_ERROR
 
 
-# Singleton
 llm_service = LLMService()

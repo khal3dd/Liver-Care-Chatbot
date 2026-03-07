@@ -12,7 +12,7 @@ class BaseController:
 
     _store: dict[str, ChatSession] = {}
 
-    # ── CRUD ─────────────────────────────────────────────
+  
     def get_session(self, session_id: str) -> ChatSession | None:
         return self._store.get(session_id)
 

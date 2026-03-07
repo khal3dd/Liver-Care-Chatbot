@@ -27,10 +27,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Routers FIRST ─────────────────────────────────────────
 app.include_router(base_router)
 app.include_router(chat_router)
 app.include_router(session_router)
 
-# ── Static LAST ───────────────────────────────────────────
 app.mount("/", StaticFiles(directory="src/assets", html=True), name="static")
