@@ -44,11 +44,11 @@ class ModelEnum(str, Enum):
 
     @property
     def label(self) -> str:
-        return self._metadata.value.get(self.value, ("Unknown", False))[0]
+        return self._metadata.get(self.value, ("Unknown", False))[0]
 
     @property
     def is_free(self) -> bool:
-        return self._metadata.value.get(self.value, ("Unknown", False))[1]
+        return self._metadata.get(self.value, ("Unknown", False))[1]
 
     @classmethod
     def values_list(cls) -> list[str]:

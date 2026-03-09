@@ -27,6 +27,12 @@ class Settings(BaseSettings):
 
     ALLOWED_ORIGINS: List[str] = ["*"]
 
+    # RAG Configuration
+    CHUNK_SIZE: int = 1000
+    CHUNK_OVERLAP: int = 200
+    TOP_K_RESULTS: int = 3
+    CHROMA_DB_PATH: str = "./chroma_db"
+
     
     @property
     def EXTRA_HEADERS(self) -> dict:
